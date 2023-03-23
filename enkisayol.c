@@ -78,3 +78,70 @@ int main()
         uzaklik = dijkstra(maliyet,kaynak,hedef);
         printf("%d birim\n",uzaklik);
     }
+    
+else if(secim==2)
+    {
+        printf("harf giriniz:");
+        scanf("%s",ad3);
+
+        while(!feof(harfler))
+    {
+        fscanf(harfler,"%s - %d",harf,&kod1);
+        strcpy(liste[sayac],harf);
+        sayac++;
+        if(feof(harfler))
+            break;
+    }
+
+    while(!feof(mesafe))
+    {
+        fscanf(mesafe,"%s - %s - %d",harf1,harf2,&birim);
+
+        for(i=1; i<kod; i++)
+        {
+            if(strcmp(liste[i],harf1)==0)
+            {
+               adres1=i;
+            }
+
+            if(strcmp(liste[i],harf2)==0)
+            {
+                adres2=i;
+                maliyet[adres1][adres2]=maliyet[adres2][adres1]=birim;
+            }
+
+        }
+    }
+        int hedef2=1;
+        int uzaklik2,kaynak2;
+        printf("\nGirdiginiz harfin diger harflere olan en kisa yollarin listesi:\n\n");
+
+        for(i=1; i<kod; i++)
+        {
+            if(strcmp(liste[i],ad3)==0)
+            {
+                kaynak2=i;
+                for(hedef2=1; hedef2<kod; hedef2++)
+                {
+                if(kaynak2==hedef2)
+                hedef2++;
+
+                uzaklik2=dijkstra(maliyet,kaynak2,hedef2);
+                printf("%d birim\n",uzaklik2);
+                }
+            }
+
+        }
+
+    }
+    else
+   {
+        printf("yanlis secim yaptiniz\n");
+        goto basadon;
+    }
+
+    fclose(harfler);
+    fclose(mesafe);
+
+    return 0;
+}
