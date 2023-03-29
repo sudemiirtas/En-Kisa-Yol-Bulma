@@ -183,3 +183,36 @@ int dijkstra(int maliyet[][kod],int kaynak,int hedef)
         secilmis[baslangic]=1;
     }
     baslangic=hedef;
+    FILE *harfler;
+    harfler=fopen("harfler.txt","r");
+
+    int sayi;
+    char harf[kod][20],degis[kod][20];
+    int k=1;
+
+        while(!feof(harfler))
+        {
+        fscanf(harfler,"%s - %d",harf[k],&sayi);
+        k++;
+        if(feof(harfler))
+             break;
+        }
+
+    int j=1;
+
+    while(baslangic!=-1)
+    {
+        strcpy(degis[j],harf[baslangic]);
+        j++;
+        baslangic=onceki[baslangic];
+    }
+
+     int a;
+
+    for(a=j-1; a>0; a--)
+    {
+        printf("%s-",degis[a]);
+    }
+    fclose(harfler);
+    return mesafe[hedef];
+}
