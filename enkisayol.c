@@ -145,3 +145,41 @@ else if(secim==2)
 
     return 0;
 }
+// ALT SATIRDAKI DIJKSTRA FONKSIYONUNDA BU ADRESTEN http://www.codewithc.com/dijkstras-algorithm-in-c/ FAYDALANILMISTIR.
+
+int dijkstra(int maliyet[][kod],int kaynak,int hedef)
+{
+
+    int mesafe[kod],onceki[kod],secilmis[kod]={0};
+    int d,i,m,min,baslangic;
+
+    for(i=1; i<kod; i++)
+    {
+        mesafe[i]=9999;
+        onceki[i]=-1;
+    }
+    baslangic=kaynak;
+    secilmis[baslangic]=1;
+    mesafe[baslangic]= 0;
+    while(secilmis[hedef]==0)
+    {
+        min=9999;
+        m=0;
+        for(i=1; i<kod; i++)
+        {
+            d = mesafe[baslangic] + maliyet[baslangic][i];
+            if(d< mesafe[i]&&secilmis[i]==0)
+            {
+                mesafe[i]=d;
+                onceki[i]=baslangic;
+            }
+            if(min>mesafe[i] && secilmis[i]==0)
+            {
+                min=mesafe[i];
+                m=i;
+            }
+        }
+        baslangic=m;
+        secilmis[baslangic]=1;
+    }
+    baslangic=hedef;
