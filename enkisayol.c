@@ -145,7 +145,7 @@ else if(secim==2)
 
     return 0;
 }
-// ALT SATIRDAKI DIJKSTRA FONKSIYONUNDA BU ADRESTEN http://www.codewithc.com/dijkstras-algorithm-in-c/ FAYDALANILMISTIR.
+//  DIJKSTRA FONKSIYONUNDA BU ADRESTEN http://www.codewithc.com/dijkstras-algorithm-in-c/ FAYDALANILMISTIR.
 
 int dijkstra(int maliyet[][kod],int kaynak,int hedef)
 {
