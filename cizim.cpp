@@ -66,7 +66,7 @@ int main() {
     outtextxy(532, 375 , "U");
     outtextxy(542, 180 , "T");
 
-	outtextxy(265, 330 , "4");
+    outtextxy(265, 330 , "4");
     outtextxy(283, 204 , "8");
     outtextxy(380, 415 , "3");
     outtextxy(210, 270 , "3");
